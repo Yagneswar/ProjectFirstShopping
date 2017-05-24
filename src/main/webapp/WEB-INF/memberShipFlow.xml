@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+ 
+	 <!-- if not specified the first view state is the starting state -->
+	<view-state id="memberShip" view="shipping">
+	 <transition on="submit" to="payment"/>
+	   
+	</view-state>
+ 	
+ 	
+	<!-- 
+	<action-state id="validate">
+		<evaluate expression="demohandler.validateDetails(userBean,messageContext)"></evaluate>
+		<transition on="success" to="confirmDetails" />
+		<transition on="failure" to="start" />
+	</action-state> -->
+ 
+	<view-state id="payment" view="payment" >
+		<transition on="submit" to="toHome" />
+		<!-- <transition on="submit" to="welcome" /> -->
+	</view-state>
+ 
+	<end-state id="toHome" view="externalRedirect:contextRelative:viewdetails" />
+	
+</flow>
